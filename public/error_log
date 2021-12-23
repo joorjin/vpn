@@ -1,0 +1,6 @@
+[01-Aug-2021 09:55:07 UTC] PHP Warning:  require(/home/temotv/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/temotv/public_html/index.php on line 34
+[01-Aug-2021 09:55:07 UTC] PHP Warning:  require(/home/temotv/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/temotv/public_html/index.php on line 34
+[01-Aug-2021 09:55:07 UTC] PHP Fatal error:  require(): Failed opening required '/home/temotv/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/temotv/public_html/index.php on line 34
+[01-Aug-2021 09:55:07 UTC] PHP Warning:  require(/home/temotv/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/temotv/public_html/index.php on line 34
+[01-Aug-2021 09:55:07 UTC] PHP Warning:  require(/home/temotv/public_html/../vendor/autoload.php): failed to open stream: No such file or directory in /home/temotv/public_html/index.php on line 34
+[01-Aug-2021 09:55:07 UTC] PHP Fatal error:  require(): Failed opening required '/home/temotv/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/temotv/public_html/index.php on line 34
