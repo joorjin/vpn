@@ -28,6 +28,8 @@ Route::group(['prefix' => 'v2-0-0'], function () {
         Route::get('user/{email}',[UserController::class, "get"]);
         Route::post('user',[UserController::class, "save"]);
         Route::post('emailCheckCode',[UserController::class, "emailCheckCode"]);
+        //login
+        Route::get('login',[UserController::class, "login"]);
     });
 
 });

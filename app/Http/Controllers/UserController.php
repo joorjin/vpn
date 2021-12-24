@@ -49,7 +49,8 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:200',
             'email'=> 'required|email|max:250',
-            'password'=>'required|min:8'
+            'password'=>'required|min:8',
+            'device_code'=>'required|'
         ]);
 
         if ($validator->fails()) {
@@ -84,6 +85,7 @@ class UserController extends Controller
         $user->email=$request->email;
         $user->email_status=$emailCode;
         $user->password=sha1($request->password);
+        $user->device_code=$request->device_code;
         $user->remember_token=$rand;
         $user->save();
 
@@ -131,5 +133,43 @@ class UserController extends Controller
                 "status"=>"No user",
             ],400);
         }
+    }
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password'=>'required'
+        ]);
+
+        if ($validator->fails()) {
+            $message = $validator->errors();
+            return Response()->json([
+                "err"=>$message,
+            ],400);
+        }
+
+
+        $user=User::where('email',$request->email)->get();
+        if (!$user->count()) {
+            return Response()->json([
+                "err"=>"No user",
+            ],400);
+        }
+        if(sha1($request->password) != $user[0]['password']){
+            return Response()->json([
+                "err"=>"Wrong password",
+            ],400);
+        }
+        if ($user[0]['email_status']!='confirmed') {
+            return Response()->json([
+                "err"=>"Unverified email",
+            ],400);
+        }
+
+        return Response()->json([
+            $user
+        ],200);
+
+
     }
 }

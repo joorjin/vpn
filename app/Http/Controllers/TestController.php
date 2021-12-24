@@ -13,10 +13,10 @@ class TestController extends Controller
     public function test()
     {
 
-            $emailData=[
-                'joorjin2@gmail.com',
-                '11111'
-            ];
-            Mail::send(new infoMail($emailData));
+            // $emailData=[
+            //     'mmaz13841384@gmail.com',
+            //     'hello orak'
+            // ];
+            // Mail::send(new infoMail($emailData));
     }
 }
