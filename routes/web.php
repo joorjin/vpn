@@ -21,3 +21,7 @@ Route::group(["prefix" => "admin"], function () {
 });
 
 Route::any("test",[TestController::class,"test"]);
+
+Route::get('ver', function () {
+    return '111';
+});
