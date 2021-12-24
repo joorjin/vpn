@@ -50,7 +50,7 @@ class UserController extends Controller
             'name' => 'required|max:200',
             'email'=> 'required|email|max:250',
             'password'=>'required|min:8',
-            'device_code'=>'required|'
+            'device_code'=>'required|unique:users,device_code'
         ]);
 
         if ($validator->fails()) {
