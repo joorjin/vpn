@@ -19,13 +19,13 @@ class ApiValid
     {
         if (!isset(apache_request_headers()['API_KEY'])) {
             return Response()->json([
-                "err"=>"422",
+                "err"=>"You did not send the key",
             ],422);
         }
         $token = api_key::where('token',apache_request_headers()['API_KEY'])->count();
         if ($token == 0) {
             return Response()->json([
-                "err"=>"422",
+                "err"=>"The key is wrong",
             ],422);
         }
         return $next($request);
