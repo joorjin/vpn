@@ -17,7 +17,7 @@ class ApiValid
      */
     public function handle(Request $request, Closure $next)
     {
-        dd(apache_request_headers());
+        dd(apache_request_headers()['API_KEY']);
         if (!isset(apache_request_headers()['API_KEY'])) {
             return Response()->json([
                 "err"=>"You did not send the key",
