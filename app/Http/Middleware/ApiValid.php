@@ -17,13 +17,13 @@ class ApiValid
      */
     public function handle(Request $request, Closure $next)
     {
-        dd($_SERVER['HTTP_API_KEY']);
+        // dd($_SERVER['HTTP_API_KEY']);
         if (!isset($_SERVER['HTTP_API_KEY'])) {
             return Response()->json([
                 "err"=>"You did not send the key",
             ],422);
         }
-        $token = api_key::where('token',apache_request_headers()['API_KEY'])->count();
+        $token = api_key::where('token',$_SERVER['HTTP_API_KEY'])->count();
         if ($token == 0) {
             return Response()->json([
                 "err"=>"The key is wrong",
